@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <title>Silent SMS — HLR</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+</head>
+<body>
+  <header>
+    <h1>Silent SMS</h1>
+    <p class="tagline">Lokaal dashboard voor SMS via Ankarex</p>
+    <nav>
+      <a id="nav-home" href="/index.html">Home</a>
+      <a id="nav-account" href="/account.html">Account</a>
+      <a id="nav-send" href="/send.html">Send</a>
+      <a id="nav-dlr" href="/dlr.html">DLR</a>
+      <a id="nav-hlr" href="/hlr.html">HLR</a>
+      <a id="nav-lists" href="/lists.html">Lijsten</a>
+    </nav>
+  </header>
+  <main>
+
+    <section class="card">
+      <h2>HLR</h2>
+      <label for="hlrCsv">Nummers (CSV)</label>
+      <input id="hlrCsv" placeholder="+12223334444,+15556667777">
+      <div class="actions"><button id="btnHLR">HLR job starten</button></div>
+
+      <label for="hlrJob">HLR Job ID</label>
+      <input id="hlrJob" placeholder="bijv. 551">
+      <div class="actions"><button id="btnHLRStatus">HLR status</button></div>
+      <pre id="hlrOut" class="mono"></pre>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/hlr.js"></script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>

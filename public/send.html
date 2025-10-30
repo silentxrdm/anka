@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <title>Silent SMS — Send</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+</head>
+<body>
+  <header>
+    <h1>Silent SMS</h1>
+    <p class="tagline">Lokaal dashboard voor SMS via Ankarex</p>
+    <nav>
+      <a id="nav-home" href="/index.html">Home</a>
+      <a id="nav-account" href="/account.html">Account</a>
+      <a id="nav-send" href="/send.html">Send</a>
+      <a id="nav-dlr" href="/dlr.html">DLR</a>
+      <a id="nav-hlr" href="/hlr.html">HLR</a>
+      <a id="nav-lists" href="/lists.html">Lijsten</a>
+    </nav>
+  </header>
+  <main>
+
+    <section class="card">
+      <h2>Versturen</h2>
+
+      <label for="listSelect">Kies lijsten (meervoud mogelijk)</label>
+      <select id="listSelect" multiple size="6"></select>
+      <small class="muted">Houd Ctrl/⌘ ingedrukt voor meerdere selecties.</small>
+
+      <label for="extraCsv">Extra nummers (optioneel, CSV/regels)</label>
+      <textarea id="extraCsv" rows="4" placeholder="+316123..., 0612345678"></textarea>
+
+      <div class="grid2">
+        <div>
+          <label for="sender_id">Sender ID (max 11)</label>
+          <input id="sender_id" maxlength="11" value="SilentSMS">
+        </div>
+        <div>
+          <label for="unicode">Unicode</label>
+          <select id="unicode">
+            <option value="false" selected>Nee</option>
+            <option value="true">Ja</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="message_content">Bericht</label>
+      <textarea id="message_content" rows="4" placeholder="Max 160 tekens (of 70 met Unicode)"></textarea>
+      <div class="muted" id="msgCounter">0 / 160 (over: 160)</div>
+
+      <div class="actions">
+        <button id="btnPreview">Preview</button>
+        <button id="btnSend" class="primary">Versturen</button>
+      </div>
+
+      <div id="previewOut" class="mono"></div>
+      <div id="sendOut" class="mono"></div>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/send.js"></script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>

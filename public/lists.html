@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <title>Silent SMS — Lijsten</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+</head>
+<body>
+  <header>
+    <h1>Silent SMS</h1>
+    <p class="tagline">Lokaal dashboard voor SMS via Ankarex</p>
+    <nav>
+      <a id="nav-home" href="/index.html">Home</a>
+      <a id="nav-account" href="/account.html">Account</a>
+      <a id="nav-send" href="/send.html">Send</a>
+      <a id="nav-dlr" href="/dlr.html">DLR</a>
+      <a id="nav-hlr" href="/hlr.html">HLR</a>
+      <a id="nav-lists" href="/lists.html">Lijsten</a>
+    </nav>
+  </header>
+  <main>
+
+    <section class="card">
+      <h2>Lijsten beheren</h2>
+      <div class="grid2">
+        <div>
+          <label for="newListName">Nieuwe lijst</label>
+          <input id="newListName" placeholder="Bijv. Klanten NL">
+        </div>
+        <div class="actions" style="align-items:end">
+          <button id="btnAddList" class="primary">Aanmaken</button>
+          <button id="btnReloadLists">Vernieuwen</button>
+        </div>
+      </div>
+
+      <div class="tableWrap">
+        <table class="table">
+          <thead><tr><th>Naam</th><th>Aantal</th><th>Aangemaakt</th><th>Acties</th></tr></thead>
+          <tbody id="listsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="listPanel" style="display:none">
+      <h2 id="listTitle">Lijst</h2>
+
+      <div class="grid2">
+        <div>
+          <label for="pasteRows">Importeer nummers (plakken: regels/CSV)</label>
+          <textarea id="pasteRows" rows="4" placeholder="0612345678
++31612345678"></textarea>
+        </div>
+        <div>
+          <label for="vcfFile">of VCF bestand</label>
+          <input id="vcfFile" type="file" accept=".vcf,text/vcard">
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label for="defaultCc">Standaard landcode</label>
+          <input id="defaultCc" value="+31">
+        </div>
+        <div class="checkline" style="display:flex;align-items:center;gap:8px;margin-top:26px">
+          <input type="checkbox" id="assumeTrunk0" checked><label for="assumeTrunk0">Strip leading 0 (06→+316)</label>
+          <input type="checkbox" id="dedupe" checked><label for="dedupe">Dedupe</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnImportPaste">Import (plak)</button>
+        <button id="btnImportVCF">Import (VCF)</button>
+        <button id="btnDedupe">Dedupe</button>
+        <button id="btnAutoFix">Auto-fix NL</button>
+        <button id="btnDeleteInvalid">Verwijder invalid</button>
+      </div>
+
+      <div class="tableWrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Normalized</th>
+              <th>Label</th>
+              <th>Raw</th>
+              <th>Valid</th>
+              <th>Acties</th>
+            </tr>
+          </thead>
+          <tbody id="itemsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/lists.js"></script>
+  <script src="/js/pwa.js"></script>
+</body>
+</html>
